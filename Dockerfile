@@ -1,12 +1,14 @@
 FROM ruby:2.3
 
-RUN mkdir /users-app
+RUN mkdir /sa_users_app
 RUN apt-get update
-RUN apt-get install libc-ares2 libv8-3.14.5 nodejs
-WORKDIR /users-app
+RUN apt-get install -y libc-ares2 libv8-3.14.5 nodejs
+WORKDIR /sa_users_app
 
-ADD Gemfile /users-app/Gemfile
-ADD Gemfile.lock /users-app/Gemfile.lock
+ADD Gemfile /sa_users_app/Gemfile
+ADD Gemfile.lock /sa_users_app/Gemfile.lock
 
 RUN bundle install
-ADD . /users-app
+ADD . /sa_users_app
+
+EXPOSE 3007
