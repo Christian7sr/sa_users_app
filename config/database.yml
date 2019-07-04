@@ -16,7 +16,7 @@ default: &default
   username: root
   password: 123
   host: 35.192.160.53
-  port: 3007
+  port: 3307
 
 development:
   <<: *default
